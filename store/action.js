@@ -60,10 +60,11 @@ export const saveOrder = (order) => {
         dispatch(saveOrderRequest());
         console.log('--------------SAVE REQUEST:', order);
 
-        API.saveOrder({"-LZk_tz6odif2qbJcs8p":2}).then(() => {
+        let tempOrder = {"-LZk_tz6odif2qbJcs8p":2};
+        API.saveOrder(tempOrder).then(() => {
             console.log('--------------SUCCESS', order);
             dispatch(saveOrderSuccess());
-            alert('Заказ принят', order.type);
+            alert('Заказ принят');
         }, error => {
             dispatch(saveOrderFailure(error));
         });
