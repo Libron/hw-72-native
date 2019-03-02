@@ -16,7 +16,7 @@ export default class App extends React.Component {
         <Provider store={store}>
             <View style={styles.container}>
                 <View style={styles.header}>
-                    <Text style={styles.headerText}>Turtle Pizza</Text>
+                    <Text style={styles.headerText}>Turtle Pizza Menu</Text>
                 </View>
                 <View style={styles.content}>
                     <DishesMenu />
