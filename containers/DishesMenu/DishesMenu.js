@@ -32,7 +32,6 @@ class DishesMenu extends React.Component {
 
         return (
                 <View style={styles.DishMenu}>
-                    <Text style={styles.text}>Menu</Text>
                     <View style={styles.menu}>
                         <FlatList
                             data={dishes}
@@ -44,8 +43,9 @@ class DishesMenu extends React.Component {
                         <Text style={styles.footerText}>Order total: {totalSum} KGS</Text>
                         <Button
                             onPress={this.props.toggleModal}
-                            title="Proceed Order"
+                            title="CHECKOUT"
                             color="#841584"
+                            disabled={(Object.keys(this.props.order).length === 0)}
                         />
                     </View>
 
@@ -53,6 +53,7 @@ class DishesMenu extends React.Component {
                         order={this.props.order}
                         dishes={this.props.dishes}
                         total={totalSum}
+                        deliveryPrice={DELIVERY_PRICE}
                         visible={this.props.show}
                         toggle={this.props.toggleModal}
                         removeDishFromOrder={this.props.removeDishFromOrder}
@@ -74,12 +75,8 @@ const styles = StyleSheet.create({
         flex: 0.90,
         overflow: 'hidden',
     },
-    text: {
-        fontSize: 15,
-        margin: 10
-    },
     footer: {
-        flex: 0.10,
+        flex: 0.15,
         flexDirection: 'column',
         justifyContent: 'space-between',
         alignItems: 'stretch',
@@ -91,6 +88,9 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 15,
         color: 'red'
+    },
+    test: {
+        margin: 100
     }
 });
 
