@@ -1,7 +1,7 @@
 import {
     ADD_DISH_TO_ODER, REMOVE_DISH_FROM_ODER,
     FETCH_DISHES_FAILURE, FETCH_DISHES_REQUEST, FETCH_DISHES_SUCCESS,
-    SAVE_ORDER_FAILURE, SAVE_ORDER_REQUEST, SAVE_ORDER_SUCCESS, TOGGLE_MODAL
+    SAVE_ORDER_FAILURE, SAVE_ORDER_REQUEST, SAVE_ORDER_SUCCESS, TOGGLE_MODAL, CLEAR_ORDER
 } from "./actionTypes";
 
 const initialState = {
@@ -60,6 +60,8 @@ const reducer = (state = initialState, action) => {
 
         case TOGGLE_MODAL:
             return {...state, isActiveModal: !state.isActiveModal};
+        case CLEAR_ORDER:
+            return {...state, isActiveModal: false, order: {}};
 
         default:
             return state;

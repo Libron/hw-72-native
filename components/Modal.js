@@ -48,12 +48,17 @@ class ModalExample extends Component {
                         </View>
 
                         <View style={styles.footer}>
-                            <Text style={styles.total}>Total: {this.props.total} KGS</Text>
+                            <Text style={styles.total}>Total: <Text style={{color: 'gold'}}>{this.props.total} KGS</Text></Text>
                                 <View style={styles.buttons}>
                                     <Button
                                         onPress={this.props.toggle}
-                                        title="Cancel"
+                                        title="Go Back"
                                         color="grey"
+                                    />
+                                    <Button
+                                        onPress={this.props.clearOrder}
+                                        title="Clear order"
+                                        color="red"
                                     />
                                     <Button
                                         onPress={this.props.saveOrder('Test message')}

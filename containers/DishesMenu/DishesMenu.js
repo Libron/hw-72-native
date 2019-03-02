@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, Text, View, FlatList, Button} from 'react-native';
 import {connect} from 'react-redux';
-import {addDishToOrder, fetchDishes, removeDishFromOrder, saveOrder, toggleModal} from "../../store/action";
+import {addDishToOrder, clearOrder, fetchDishes, removeDishFromOrder, saveOrder, toggleModal} from "../../store/action";
 import DishCard from "../../components/DishCard/DishCard";
 
 import Modal from '../../components/Modal';
@@ -58,6 +58,7 @@ class DishesMenu extends React.Component {
                         toggle={this.props.toggleModal}
                         removeDishFromOrder={this.props.removeDishFromOrder}
                         saveOrder={this.props.saveOrder}
+                        clearOrder={this.props.clearOrder}
                     />
                 </View>
         );
@@ -109,6 +110,7 @@ const mapDispatchToProps = dispatch => {
         addDishToOrder: (id) => dispatch(addDishToOrder(id)),
         removeDishFromOrder: (id) => dispatch(removeDishFromOrder(id)),
         toggleModal: () => dispatch(toggleModal()),
+        clearOrder: () => dispatch(clearOrder()),
     }
 };
 

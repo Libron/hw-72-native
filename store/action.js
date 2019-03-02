@@ -8,7 +8,7 @@ import {
     TOGGLE_MODAL,
     SAVE_ORDER_REQUEST,
     SAVE_ORDER_SUCCESS,
-    SAVE_ORDER_FAILURE,
+    SAVE_ORDER_FAILURE, CLEAR_ORDER,
 } from "./actionTypes";
 
 export const fetchDishesRequest = () => {
@@ -55,19 +55,24 @@ export const saveOrderFailure = error => {
     return {type: SAVE_ORDER_FAILURE, error}
 };
 
+let tempOrder = {"-LZk_tz6odif2qbJcs8p":2};
+
 export const saveOrder = (order) => {
     return (dispatch) => {
         dispatch(saveOrderRequest());
-        console.log('--------------SAVE REQUEST:', order);
+        console.log('[SAVE REQUEST with following order]', order);
 
-        let tempOrder = {"-LZk_tz6odif2qbJcs8p":2};
         API.saveOrder(tempOrder).then(() => {
-            console.log('--------------SUCCESS', order);
-            dispatch(saveOrderSuccess());
+            console.log('[SAVE SUCCESS]');
             alert('Заказ принят');
+
+            dispatch(saveOrderSuccess());
         }, error => {
             dispatch(saveOrderFailure(error));
         });
     }
 };
 
+export const clearOrder = () => {
+    return {type: CLEAR_ORDER}
+};

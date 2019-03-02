@@ -9,7 +9,6 @@ export const SAVE_ORDER_FAILURE = 'SAVE_ORDER_FAILURE';
 export const ADD_DISH_TO_ODER = 'ADD_DISH_TO_ODER';
 export const REMOVE_DISH_FROM_ODER = 'REMOVE_DISH_FROM_ODER';
 
-export const OPEN_MODAL = 'OPEN_MODAL';
-export const CLOSE_MODAL = 'CLOSE_MODAL';
 export const TOGGLE_MODAL = 'TOGGLE_MODAL';
 
+export const CLEAR_ORDER = 'CLEAR_ORDER';
