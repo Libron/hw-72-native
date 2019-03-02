@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Modal, Text, View, Button, StyleSheet} from 'react-native';
 
-class Modal extends Component {
+class ModalExample extends Component {
     render() {
         const order = Object.keys(this.props.order).map(dishId=>{
            return (
@@ -37,7 +37,7 @@ class Modal extends Component {
                             <View style={styles.orderItem}>
                                 <Text style={{color: '#424242', fontWeight: 'bold'}}>Delivery</Text>
                                 <Text style={{color: '#424242', fontWeight: 'bold'}}> x 1</Text>
-                                <Text style={{color: '#424242', fontWeight: 'bold'}}>150 KGS</Text>
+                                <Text style={{color: '#424242', fontWeight: 'bold'}}>{this.props.deliveryPrice} KGS</Text>
                                 <Button
                                     onPress={()=>this.props.removeDishFromOrder(dishId)}
                                     title="delete"
@@ -56,7 +56,7 @@ class Modal extends Component {
                                         color="grey"
                                     />
                                     <Button
-                                        onPress={() => this.props.saveOrder('HELLO WORLD')}
+                                        onPress={this.props.saveOrder('Test message')}
                                         title="Order Now"
                                         color="green"
                                     />
@@ -102,15 +102,15 @@ const styles = StyleSheet.create({
 
     },
     footer: {
-        flex: 2,
+        flex: 1.5,
         justifyContent: 'space-around',
-        alignItems: 'center'
+        alignItems: 'stretch'
     },
     buttons: {
-      flex: 1,
+      flex: 0.7,
       flexDirection: 'row',
+        alignItems: 'center',
       justifyContent: 'space-around',
-      alignItems: 'center'
     },
     btn: {
         width: 40,
@@ -122,7 +122,8 @@ const styles = StyleSheet.create({
         marginTop: 10,
         color: '#fff',
         fontWeight: 'bold',
+        textAlign: 'center'
     }
 });
 
-export default Modal;
+export default ModalExample;
